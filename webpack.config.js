@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var json = require('json');
 
 module.exports = {
   devtool: 'eval',
