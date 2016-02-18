@@ -8,4 +8,7 @@ and gets you can search by title and gives the total earnings of that title.
 Downloaded the redux-started-kit example counter. 
 Fetch the web api, and render to my component. 
 
-
+#How to run the program:
+run npm install
+npm start
+look for total earnings!
