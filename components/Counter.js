@@ -3,42 +3,33 @@ var _ = require('lodash');
 
 export default class Counter extends React.Component {
   static propTypes = {
-    counter: PropTypes.array.isRequired
+    counter: PropTypes.object.isRequired
   };
 
   componentWillMount(){
     let counter = this.props.getDB();
   }
   componentWillReceiveProps(nextProps){
-    this.setState({allData: nextProps.counter})
+    this.setState({allData: nextProps.counter.data})
   }
   clickHandle(){
     var title = this.state.newArray.toLowerCase();
     var result = 0 ;
     for (var i = 0 ; i < this.state.allData.length; i++){
-      var newJSON = JSON.stringify(this.state.allData[i].title).toLowerCase();
+      var newJSON = JSON.stringify(this.state.allData[i][9]).toLowerCase();
       if(newJSON.includes(title)){
-        result += Number(this.state.allData[i].total_earnings);
+        result += Number(this.state.allData[i][18]);
       }
     }
-    document.getElementById("result").innerHTML= result;
+    if(result!==0){
+      document.getElementById("result").innerHTML= result;
+    }else{
+      document.getElementById("result").innerHTML = "Sorry this database doesn't have that profession."
+    }
   }
   getEverything(event){
     var la = event.target.value;
     this.setState({newArray: la});
-  }
-  dropDown(){
-    var ls = []
-    var newData = [];
-    var newArray= []
-    for(var i = 0 ; i < this.state.allData.length; i++){
-      newData.push(this.state.allData[i].title);
-      newArray = _.uniq(newData);
-    }
-    newArray.push(<select><option>{newArray}</option></select>);
-  }
-  showTooltip(){
-    this.setState({showTool: true})
   }
   render() {
     const { counter } = this.props;

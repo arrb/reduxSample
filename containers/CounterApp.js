@@ -11,7 +11,6 @@ import * as CounterActions from '../actions/CounterActions';
 export default class CounterApp {
   render() {
     const { counter, dispatch, dbEmp } = this.props;
-    console.log("render", this.props);
 
     return (
       <Counter counter={counter}
