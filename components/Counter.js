@@ -40,7 +40,6 @@ export default class Counter extends React.Component {
       <form onChange={this.getEverything.bind(this)}>
       <div className="form-group">
       <label for="inputTitle">Enter the title you want to search</label>
-      <i className="fa fa-question"  style={{color:"red!important", float:"right"}} data-tip="ReactTooltip"></i>
       <input type="text" id="InputTitle" className="form-control" placeholder="Enter a title"></input>
       <button type="button" className="btn btn-info btn-lg btn-block" onClick={this.clickHandle.bind(this)}>Search!</button>
       </div>
