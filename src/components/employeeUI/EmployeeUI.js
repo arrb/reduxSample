@@ -46,9 +46,6 @@ export default class EmployeeUI extends Component {
     var la = event.target.value;
     this.setState({newArray: la});
   }
-  mySortFunc(a, b, order){
-    return a.count - b.count;
-  }
   render() {
     const { dataEmp, getDB } = this.props;
     var profesiToRender = [];
