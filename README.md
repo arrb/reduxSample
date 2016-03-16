@@ -10,6 +10,7 @@ Connects to a database (https://data.cityofboston.gov/Finance/Employee-Earnings-
 npm install
 npm start
 ```
-Then open http://localhost:3000
+Then open your localhost! 
+
 
 and Search!
