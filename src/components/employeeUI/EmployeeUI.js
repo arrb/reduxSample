@@ -71,54 +71,59 @@ export default class EmployeeUI extends Component {
             newResults.push(<p style={{textAlign:"center"}}> {this.state.newResult} </p>)
           }
         }
-          else{
-            newResults.push(<p style={{textAlign:"center"}}>{this.state.newResult}</p>)
-          }
+        else{
+          newResults.push(<p style={{textAlign:"center"}}>{this.state.newResult}</p>)
         }
       }
-      return (
-        <Grid>
-        <Row>
-        <Col >
-        <Row>
-        <Col className="col-xs-6 col-md-4 col-md-push-4 col-xs-push-6">
-        <form onChange={this.getEverything.bind(this)}>
-        <div className="form-group">
-        <label for="inputTitle">Enter the title you want to search</label>
-        <input type="text" id="InputTitle" className="form-control" placeholder="Enter a title"></input>
-        <button type="button" className="btn btn-info btn-lg btn-block" onClick={this.clickHandle.bind(this)}>Search!</button>
-        </div>
-        </form>
-        <div id="result">
-        {newResults}
-        </div>
+    }
+    return (
+      <Grid>
+      <Row>
+      <Col >
+      <Row>
+      <Col className="col-xs-6 col-md-4 col-md-push-4 col-xs-push-6">
+      <form onChange={this.getEverything.bind(this)}>
+      <div className="form-group">
+      <label for="inputTitle">Enter the title you want to search</label>
+      <input type="text" id="InputTitle" className="form-control" placeholder="Enter a title"></input>
+      <button type="button" className="btn btn-info btn-lg btn-block" onClick={this.clickHandle.bind(this)}>Search!</button>
+      </div>
+      </form>
+      <div id="result">
+      {newResults}
+      </div>
+      </Col>
+      </Row>
+      <Row className="show-grid">
+      <Col md={6} mdPush={6}>{profesiToRender}</Col>
+      <Col md={6} mdPull={6}>
+      {
+        this.state!== null ?
+        this.state.newData!== undefined ?
+        <BootstrapTable data={this.state.newData} pagination={true} height="400" >
+        <TableHeaderColumn dataField="title" isKey={true}>Title</TableHeaderColumn>
+        <TableHeaderColumn dataField="totalEarnings">Total Earnings</TableHeaderColumn>
+        </BootstrapTable>
+        :
+        <span></span>
+        :
+        null
+      }
         </Col>
         </Row>
-        <Row className="show-grid">
-        <Col md={6} mdPush={6}>{profesiToRender}</Col>
-        <Col md={6} mdPull={6}>
-        {this.state!== null ? this.state.newData!== undefined ?
-          <BootstrapTable data={this.state.newData} pagination={true} height="400" >
-          <TableHeaderColumn dataField="title" isKey={true}>Title</TableHeaderColumn>
-          <TableHeaderColumn dataField="totalEarnings">Total Earnings</TableHeaderColumn>
-          </BootstrapTable>
-          :
-          <span></span> : null}
-          </Col>
-          </Row>
 
-          </Col>
+        </Col>
 
-          </Row>
-          </Grid>
-        );
-      }
+        </Row>
+        </Grid>
+      );
     }
-    function mapStateToProps(state) {
-      const { dataEmp } = state;
-      return {
-        dataEmp: state.dataEmp
-      };
-    }
+  }
+  function mapStateToProps(state) {
+    const { dataEmp } = state;
+    return {
+      dataEmp: state.dataEmp
+    };
+  }
 
-    export default connect(mapStateToProps)(EmployeeUI);
+  export default connect(mapStateToProps)(EmployeeUI);

@@ -17,11 +17,11 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
-        <Route path="/" component={App}>
-          <IndexRoute component={EmployeeUI}/>
-      </Route>
-      </Router>
+  <Router history={browserHistory}>
+  <Route path="/" component={App}>
+  <IndexRoute component={EmployeeUI}/>
+  </Route>
+  </Router>
   </Provider>,
   document.getElementById('root')
 );
